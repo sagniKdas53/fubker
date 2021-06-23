@@ -1,7 +1,3 @@
-.hide {
-  visibility: hidden;
-}
-
 canvas {
   position: fixed;
   top: 0;
@@ -12,7 +8,7 @@ canvas {
   position: absolute;
   top: 100;
   left: 100;
-  z-index: -99;
+  z-index: 99;
 }
 
 :root {
