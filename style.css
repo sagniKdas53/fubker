@@ -1,0 +1,20 @@
+.hide {
+  visibility: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.butt {
+  position: absolute;
+  top: 100;
+  left: 100;
+  z-index: -99;
+}
+
+:root {
+  --columns: 12;
+}
