@@ -10,7 +10,7 @@
 
   <body>
     <canvas id="bg"></canvas>
-    <main>
+    <main class="bd">
       <div class="butt">
         <button
           type="button"
@@ -24,17 +24,13 @@
         >
           Stop Audio
         </button>
-        <button type="button" onclick="stop=!stop;">Stop/Start Animation</button>
-        <button
-          type="button"
-          onclick="scene.add(lightHelper, gridHelper);"
-        >
+        <button type="button" onclick="stop=!stop;">
+          Stop/Start Animation
+        </button>
+        <button type="button" onclick="scene.add(lightHelper, gridHelper);">
           Show Helpers
         </button>
-        <button
-          type="button"
-          onclick="scene.remove(lightHelper, gridHelper);"
-        >
+        <button type="button" onclick="scene.remove(lightHelper, gridHelper);">
           Hide Helpers
         </button>
       </div>
@@ -313,12 +309,6 @@
       turning away stared at the road. And they did not speek again all the way
       home.
     </main>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
-      integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="scr.js"></script>
+    <script type="module" src="scr.js"></script>
   </body>
 </html>

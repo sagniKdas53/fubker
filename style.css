@@ -14,3 +14,8 @@ canvas {
 :root {
   --columns: 12;
 }
+
+.bd {
+  background-color: black;
+  color: black;
+}
