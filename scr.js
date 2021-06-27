@@ -1,6 +1,8 @@
 import * as THREE from "https://threejsfundamentals.org/threejs/resources/threejs/r122/build/three.module.js";
 import { OrbitControls } from "https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/controls/OrbitControls.js";
 var stop = true;
+var touch = 0; // 0 means not touch 
+var controls;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -9,6 +11,12 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 // set renderer
+
+if ("ontouchstart" in document.documentElement) {
+  touch = 1;
+  //"your device is a touch screen device."
+}
+
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
 });
@@ -41,8 +49,9 @@ scene.add(ambientLight);
 const lightHelper = new THREE.PointLightHelper(ambientLight); //pointLight)
 const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);
-
-const controls = new OrbitControls(camera, renderer.domElement);
+if (touch != 1) {
+  controls = new OrbitControls(camera, renderer.domElement);
+}
 
 // animation loop
 function animate() {
@@ -52,7 +61,9 @@ function animate() {
     fubuker.rotation.y += 0.05;
     fubuker.rotation.z += 0.05;
   }
-  controls.update();
+  if (touch != 1) {
+    controls.update();
+  }
   renderer.render(scene, camera);
 }
 
@@ -76,3 +87,17 @@ window.onload = function () {
   document.getElementById("my_audio").play();
   window.scroll(0, window.innerHeight / 2);
 };
+
+function removeLights(){
+  scene.remove(lightHelper, gridHelper);
+}
+
+function addLights(){
+  scene.add(lightHelper, gridHelper);
+}
+function aniState() {
+  stop=!stop;
+}
+document.getElementById("aniState").onclick = aniState;
+document.getElementById("addLights").onclick = addLights;
+document.getElementById("removeLights").onclick = removeLights;
